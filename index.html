@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venky's Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+        /* Chatbot container hidden by default */
+        .venkybot-container {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 250px; /* Smaller width for the chatbot */
+            max-height: 350px; /* Limit the height */
+            background-color: #f8f9fa;
+            border: 1px solid #0077b6;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Prevent overflow */
+            z-index: 1000;
+            font-size: 12px; /* Smaller font size for the chatbot */
+        }
+
+        /* Header of chatbot */
+        .venkybot-header {
+            background-color: #0077b6;
+            color: white;
+            padding: 5px; /* Smaller padding */
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-btn {
+            background-color: transparent;
+            color: white;
+            border: none;
+            font-size: 1.2em; /* Smaller close button font */
+            cursor: pointer;
+        }
+
+        /* Chat body */
+        .venkybot-body {
+            max-height: 250px; /* Limit chat body height */
+            overflow-y: auto; /* Allow scrolling */
+            padding: 5px; /* Smaller padding */
+        }
+
+        /* Message input */
+        .venkybot-footer {
+            padding: 5px; /* Smaller padding */
+            display: flex;
+            gap: 5px; /* Smaller gap */
+        }
+
+        .open-chat-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 4px 8px; /* Smaller button */
+            background-color:white;
+            border-color:black;
+            border-style:solid;
+            border-radius: 50px;
+            cursor: pointer;
+            width:77px;
+            
+        }
+
+        /* Messages styling */
+        .message {
+            padding: 3px 8px; /* Smaller padding */
+            margin: 3px 0; /* Smaller margin */
+            border-radius: 8px;
+            font-size: 12px; /* Ensure message text is small */
+        }
+
+        .message.user {
+            background-color: #0077b6;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .message.bot {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        /* Questions container */
+        .questions-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping */
+            gap: 3px; /* Add space between buttons */
+            margin-top: 5px; /* Margin above the questions */
+        }
+
+        .question-btn {
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            border-radius: 3px; /* Smaller border radius */
+            padding: 3px 5px; /* Smaller padding */
+            cursor: pointer;
+            font-size: 10px; /* Smaller button font */
+        }
+
+        .question-btn:hover {
+            background-color: #005f8c; /* Darker shade on hover */
+        }
+        .bot-icon {
+            width: 100%; /* Set width of the icon */
+            height: 50px; /* Set height of the icon */
+            border-radius: 200%;
+            
+        }
+    </style>
+    <!-- Sticky Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">Venky's Portfolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#career-objective">Career Objective</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#qualifications">Qualifications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Technical Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#certifications">Certifications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header with Hero Section -->
+    <header class="bg-primary text-white text-center py-5">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center">
+                <img src="Mr__venky.jpg" class="img-fluid rounded-circle mb-4" alt="Venkatesh K B" style="width: 150px; height: 150px;">
+                <h1 class="display-4">Venky's Portfolio</h1>
+                <p class="lead">Code Adventurer</p>
+                <a href="#contact" class="btn btn-light btn-lg mt-3">Get in Touch</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <!-- Career Objective -->
+        <section id="career-objective" class="mb-5">
+            <h2 class="text-primary mb-4">Career Objective</h2>
+            <p>To obtain a dynamic and challenging role in software development or artificial intelligence that leverages my skills and expertise, enabling me to contribute to the organization's success while fostering my professional growth through continuous learning and development.</p>
+        </section>
+
+        <section id="qualifications" class="mb-5">
+            <h2>Qualifications</h2>
+            <ul class="list-unstyled">
+                <li><strong>Master of Computer Application (MCA)</strong>, December 2022 (Pursuing), Jawaharlal Nehru New College of Engineering, CPI: 8.5 (81%)</li>
+                <li><strong>Bachelor of Science (Computer Science)</strong>, 2019 - 2022, Veera Shaiva College, Percentage: 77.64%</li>
+                <li><strong>12th (Science Stream)</strong>, Nalandha PU College, March 2019, Percentage: 78%</li>
+                <li><strong>10th</strong>, Sri Venkayya Memorial School, March 2017, Percentage: 88%</li>
+            </ul>
+        </section>
+
+        <!-- Technical Skills -->
+        <section id="skills" class="mb-5">
+            <h2 class="text-primary mb-4">Technical Skills</h2>
+            <ul class="list-unstyled">
+                <li>Programming Languages: Java, C, C++, Python</li>
+                <li>Scripting Languages: JavaScript</li>
+                <li>Database: MySQL</li>
+                <li>Operating Systems: Windows Family (latest version), Kali Linux</li>
+                <li>Web Technology: HTML, CSS, Bootstrap</li>
+            </ul>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="mb-5">
+            <h2 class="text-primary mb-4">Projects</h2>
+            <h3>Projects Part of the MCA Curriculum</h3>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">Online Exam Anti-Cheat Tool</h4>
+                    <p class="card-text"><strong>Description:</strong> Real-time monitoring of student activities during the online exam to prevent malpractices.</p>
+                    <p class="card-text"><strong>Technology:</strong> Python, HTML, CSS, JavaScript</p>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">Smart Cup Coaster</h4>
+                    <p class="card-text"><strong>Description:</strong> An IoT-based project that alerts the person when a cup of coffee starts cooling, activating the alert system.</p>
+                    <p class="card-text"><strong>Technology:</strong> Arduino, Temperature Sensors</p>
+                </div>
+            </div>
+            <h3>Project as Part of BSc Curriculum</h3>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">Cyber Security Website</h4>
+                    <p class="card-text"><strong>Description:</strong> A website providing a platform for users to make complaints to the cyber police station and offering the best antivirus tools to secure systems.</p>
+                    <p class="card-text"><strong>Technology:</strong> HTML5, CSS3, JavaScript</p>
+                </div>
+            </div>
+        </section>
+        <section id="certifications" class="mb-5">
+            <h2>Certifications</h2>
+            <ul class="list-unstyled">
+                <li>JavaScript Essentials (Cisco Networking Academy)</li>
+                <li>Programming in Java (NPTEL Online Certification)</li>
+                <li>Python for Data Science (NPTEL Online Certification)</li>
+            </ul>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="mb-5">
+            <h2 class="text-primary mb-4">Contact</h2>
+            <p><strong>Address:</strong> Venkatesh K B, S/o Jadeppa K B, Emmiganur (P), Kampli (T), Bellary (D) - 583113, Karnataka, India</p>
+            <p><strong>Phone:</strong> +91 8088540700</p>
+            <p><strong>Email:</strong> <a href="mailto:vv11venky@gmail.com">vv11venky@gmail.com</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/Mrvenk">Mrvenk</a></p>
+            <p><strong>HackerRank:</strong> <a href="https://www.hackerrank.com/profile/vv11venky">Mrvenk</a></p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2024 Venkatesh K B. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://github.com/Mrvenk" class="text-light mr-3"><i class="fab fa-github fa-2x"></i></a>
+            <a href="https://www.hackerrank.com/profile/vv11venky" class="text-light mr-3"><i class="fab fa-hackerrank fa-2x"></i></a>
+            <a href="https://www.linkedin.com/in/venkatesh-k-b-b70992206/" class="text-light"><i class="fab fa-linkedin fa-2x"></i></a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const venkybot = document.getElementById('venkybot');
+            const openChat = document.getElementById('openChat');
+            const closeChat = document.getElementById('closeChat');
+            const venkybotMessages = document.getElementById('venkybotMessages');
+            const venkybotInput = document.getElementById('venkybotInput');
+            const sendMessage = document.getElementById('sendMessage');
+        
+            // Bot responses
+            const botResponses = {
+                "name": "My name is VENKATESH KB. I'm here to help you learn more about Venky.",
+                "email": "You can contact Venky at vv11venky@gmail.com.",
+                "skills": "Venky is skilled in Java, Python, C++, HTML, CSS, JavaScript, and MySQL.",
+                "education": "Venky has a Bachelor's in Computer Science and is pursuing a Master's in Computer Application (MCA).",
+                "certifications": "Venky is certified in JavaScript Essentials (Cisco), Java (NPTEL), and Python for Data Science (NPTEL).",
+                "projects": "Venky has worked on projects like an Online Exam Anti-Cheat Tool and a Smart Cup Coaster."
+            };
+        
+            const funReplies = [
+                "I wish I knew that, but I'm just a bot!",
+                "Oops! I need more coffee to understand that.",
+                "Beep boop! I think you’re speaking human.",
+                "That sounds interesting! But I don’t have the answer... yet!",
+                "Sorry, I'm still learning. Maybe ask me something else?",
+                "I’d tell you, but it's a secret! 🤫"
+            ];
+        
+            // Questions or prompts for the user as buttons
+            const questionList = `
+                <div class="questions-container">
+                    <button class="question-btn" data-question="name">name</button>
+                    <button class="question-btn" data-question="email">your email</button>
+                    <button class="question-btn" data-question="skills">skills</button>
+                    <button class="question-btn" data-question="education">Education</button>
+                    <button class="question-btn" data-question="certifications">Certifications</button>
+                    <button class="question-btn" data-question="projects">works and projects</button>
+                </div>
+            `;
+        
+            // Toggle chatbot open/close
+            openChat.addEventListener('click', () => {
+                venkybot.style.display = 'block';
+                openChat.style.display = 'none';
+                appendMessage('bot', 'Hello! I\'m VenkyBot. welcome to the VenkyBot world.');
+                appendHTML('bot', questionList); // Display clickable questions as buttons
+            });
+        
+            closeChat.addEventListener('click', () => {
+                venkybot.style.display = 'none';
+                openChat.style.display = 'block';
+            });
+        
+            // Send and receive messages
+            sendMessage.addEventListener('click', () => {
+                const userMessage = venkybotInput.value.toLowerCase().trim();
+                if (userMessage) {
+                    appendMessage('user', userMessage);
+                    generateBotResponse(userMessage);
+                    venkybotInput.value = ''; // Clear the input field after sending
+                }
+            });
+        
+            // Append messages to the chatbox
+            function appendMessage(sender, message) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', sender);
+                messageElement.textContent = message;
+                venkybotMessages.appendChild(messageElement);
+                scrollToBottom(); // Scroll to the latest message
+            }
+        
+            // Append HTML content to the chatbox (for buttons)
+            function appendHTML(sender, html) {
+                const div = document.createElement('div');
+                div.classList.add('message', sender);
+                div.innerHTML = html;
+                venkybotMessages.appendChild(div);
+                scrollToBottom(); // Scroll to the latest message
+        
+                // Attach click event listeners to buttons
+                div.querySelectorAll('.question-btn').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const question = button.getAttribute('data-question');
+                        appendMessage('user', button.innerText);
+                        generateBotResponse(question); // Trigger bot response for clicked question
+                    });
+                });
+            }
+        
+            // Generate bot response based on input
+            function generateBotResponse(userMessage) {
+                let botReply = botResponses[userMessage]; // Check if we have a predefined response
+        
+                if (!botReply) {
+                    // If no predefined response, choose a fun reply
+                    botReply = funReplies[Math.floor(Math.random() * funReplies.length)];
+                }
+        
+                appendMessage('bot', botReply);
+                appendHTML('bot', questionList); // Show questions again after reply
+            }
+        
+            // Scroll to the bottom of the chat messages
+            function scrollToBottom() {
+                venkybotMessages.scrollTop = venkybotMessages.scrollHeight; // Auto-scroll to latest message
+            }
+        });
+        
+    </script>
+    <!-- VenkyBot Chat -->
+    <div id="venkybot" class="venkybot-container">
+        <div class="venkybot-header">
+            <h4 style="font-size: 14px;">VenkyBot</h4> <!-- Smaller title font -->
+            <button id="closeChat" class="close-btn">&times;</button>
+        </div>
+        <div class="venkybot-body">
+            <div class="venkybot-messages" id="venkybotMessages"></div>
+        </div>
+        <div class="venkybot-footer">
+            <input type="text" id="venkybotInput" placeholder="Ask me anything..." style="font-size: 10px; padding: 3px;"> <!-- Smaller input -->
+            <button id="sendMessage" class="send-btn" style="font-size: 10px; padding: 3px;">Send</button> <!-- Smaller send button -->
+        </div>
+    </div>
+
+    <!-- Chatbot toggle button -->
+    <button id="openChat" class="open-chat-btn"><img src="bot7.gif" alt="Bot Icon" class="bot-icon"></button>
+</body>
+</html>

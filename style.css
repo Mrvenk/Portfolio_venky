@@ -1,0 +1,163 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(135deg, #00b4d8, #0077b6);
+    color: #fff;
+    padding: 1.5em 0;
+}
+
+header .header-image img {
+    border-radius: 50%;
+    max-width: 120px;
+    height: auto;
+}
+
+.navbar {
+    background-color: #f8f9fa;
+}
+
+.navbar-nav .nav-link {
+    color: #333;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0077b6;
+}
+
+footer {
+    background-color: #343a40;
+    color: #fff;
+}
+
+footer .social-icons a {
+    color: #fff;
+}
+
+footer .social-icons a:hover {
+    color: #0077b6;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #0077b6;
+}
+
+.card {
+    border: 2px solid #0077b6;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    color: #0077b6;
+}
+
+.btn-light {
+    background-color: #fff;
+    color: #0077b6;
+    border: none;
+}
+
+.btn-light:hover {
+    background-color: #f1f1f1;
+    color: #0056b3;
+}
+
+/* Section Borders */
+#career-objective, #qualifications, #skills, #projects, #certifications, #contact {
+    border: 2px solid #0077b6;
+    border-radius: 8px;
+    padding: 1.5em;
+    background-color: #fff;
+    margin-bottom: 2em;
+}
+
+/* Card Borders */
+.card {
+    border: 2px solid #0077b6;
+}
+
+/* Chatbot container hidden by default */
+.venkybot-container {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: #f8f9fa;
+    border: 1px solid #0077b6;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Header of chatbot */
+.venkybot-header {
+    background-color: #0077b6;
+    color: white;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Chat body */
+.venkybot-body {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* Message input */
+.venkybot-footer {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.open-chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Messages styling */
+.message {
+    padding: 5px 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+}
+
+.message.user {
+    background-color: #0077b6;
+    color: white;
+    align-self: flex-end;
+}
+
+.message.bot {
+    background-color: #f1f1f1;
+    color: #333;
+}
